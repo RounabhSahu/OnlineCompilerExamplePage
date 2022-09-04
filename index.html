@@ -1,0 +1,177 @@
+<!Doctype html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Team RestLess
+</title>
+
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="./main.js"></script>
+<script>
+
+
+
+
+
+</script>
+ 
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+
+     $("#run").click(function(){
+  
+           $("#output_printer").html("Loading ......");
+     });
+  });
+  
+</script>
+
+
+<script>
+$('document').ready(function(){
+		$('textarea').linenumbers({col_width:'75px'});
+	});
+	
+	</script>
+	
+<script>
+//wait for page load to initialize script
+$(document).ready(function(){
+    //listen for form submission
+    $('form').on('submit', function(e){
+      //prevent form from submitting and leaving page
+      e.preventDefault();
+
+      // AJAX 
+      $.ajax({
+            type: "POST", //type of submit
+            cache: false, //important or else you might get wrong data returned to you
+            url: "compile.php", //destination
+            datatype: "html", //expected data format from process.php
+            data: $('form').serialize(), //target your form's data and serialize for a POST
+            success: function(result) { // data is the var which holds the output of your process.php
+
+                // locate the div with #result and fill it with returned data from process.php
+                $('#output_printer').html(result);
+            }
+        });
+    });
+});
+</script>
+
+</script>
+
+<style>
+
+#wel_patil{
+	position: relative;
+	color:#F5C469;
+	font-size:60px;
+	padding-left:200px;
+	padding-bottom:50px;
+	float:left;
+}
+
+	
+</style>
+</head>
+
+<body >
+  <section id="layer1">
+    <div class="full">
+      <img src="icons8-more-than-96.png" alt="icon>" style="transform:scaleX(-1)" class="imfull">
+      <button onclick="myf()" id="st">Code Me</button>
+      <img src="icons8-more-than-96.png" alt="icon>"  class="imfull">
+    </div>
+  </section>
+  <section id="layer2">
+
+
+
+
+<form method="POST">
+
+
+<div class="dd">
+  <div id="dd2">
+    <nav id="Nav">
+      <select id="select_language"  name="language">
+        <option value="c">C</option>
+        <option value="cpp">C++</option>
+        <option value="cpp11">C++ 11</option>
+        <option value="java">Java</option>
+        <option value="python2.7">Python 2.7</option>
+        <option value="python3.6">Python 3.6</option>
+        </select>  
+    
+
+	<!-- <button id="copy" onclick="func_copy()"> <strong> >>  Copy </strong> </button>
+	<button id="url" ><strong> >> GEN URL </strong></button> -->
+</nav><input type="submit" id="run" value=" >>  Run "/></div>
+
+<div id="code_area"><textarea id ="code_writer" name="code"></textarea></div>
+
+<!-- <div class="editor" id="code_writer" name="code" data-language="javascript"  data-rows="80" maximized="true" >
+</div> -->
+<!-- <input type="submit" id="run" value=" >>  Run "/> -->
+</div>
+
+<div id="inout" >
+  <div id="input_area" placeholder="Describe yourself here..."> <textarea id="input_writter" name="input"
+      placeholder="Your Input Goes Here...!!!"></textarea></div>
+  <!-- ************************** -->
+  <div id="output">
+    <label for=""id="output_area">OUTPUT :
+    <textArea id="output_printer" name="output" disabled
+        placeholder="Your OUTPUT Goes Here...!!!"></textArea></label>
+  </div>
+  <!-- ************************** -->
+</div>
+</form>
+</section>
+<script>
+
+  // document.getElementById("layer1").style.visibility="hidden";
+  var opacity = 0;
+  var mar = 100
+  var intervalID = 0;
+  function myf() {
+    setInterval(hide, 12);
+  }
+  function hide() {
+    var body = document.getElementById("layer1");
+    opacity = Number(window.getComputedStyle(body).getPropertyValue("opacity"))
+    var box = document.getElementById("imfull");
+    // mar=Number(window.getComputedStyle(box).getPropertyValue("margin"))
+    if (opacity > 0) {
+      opacity = opacity - 0.01;
+      //  mar=mar-10;
+      //  box.style.margin.left=mar;
+      body.style.opacity = opacity
+    }
+    else {
+      document.getElementById("layer1").style.display = "none";
+      clearInterval(intervalID);
+
+    }
+
+
+
+
+
+
+
+  }
+
+</script>
+
+
+</body>
+</html>
